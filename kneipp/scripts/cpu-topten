@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/bin/notify-send -i " " "Top ten CPU consumers" "$(ps axch -o cmd,%cpu --sort=-%cpu | head)"
+# /usr/bin/notify-send "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)"
+

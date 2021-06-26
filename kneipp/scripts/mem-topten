@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+free -h | awk '/^Mem:/ {print $3 "/" $2}'
+
+ps axch -o cmd:15,%mem --sort=-%mem | head
+
