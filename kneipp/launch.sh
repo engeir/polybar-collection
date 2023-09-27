@@ -25,8 +25,9 @@ fi
 my_laptop_external_monitor=$(xrandr --query | grep 'DP-2')
 if [[ $my_laptop_external_monitor = *connected* ]]; then
     polybar usbc -c $(dirname $0)/config.ini & disown
+    bspc config -m DP-2 top_padding 2
     sleep 0.5
-    hideIt.sh -w -i 0.2 -d "top" --name "polybar-usbc_DP-2" --region 1920x0+2560+22 & disown
+    hideIt.sh -w -i 0.2 -d "top" --name "polybar-usbc_DP-2" --region 1920x0+2560+3 & disown
 fi
 
 xdo raise -N Polybar
