@@ -11,6 +11,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar
 polybar top -c $(dirname $0)/config.ini & disown
+bspc config -m eDP-1 top_padding 22
 # sleep 0.5
 # hideIt.sh -w -i 0.2 -d "top" --name "polybar-top_eDP-1" --region 0x360+1920+22 & disown
 # sleep 0.5
@@ -30,4 +31,5 @@ if [[ $my_laptop_external_monitor = *connected* ]]; then
     hideIt.sh -w -i 0.2 -d "top" --name "polybar-usbc_DP-2" --region 1920x0+2560+3 & disown
 fi
 
+sleep 0.5
 xdo raise -N Polybar
