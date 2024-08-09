@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# change the folder and reload to change the theme
-"$(dirname "$0")"/kneipp/launch.sh
+THEME="lofi"
+
+killall polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+CONFIG_DIR=$(dirname $0)/themes/$THEME/config.ini
+polybar main -c $CONFIG_DIR &
