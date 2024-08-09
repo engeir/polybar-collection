@@ -1,6 +1,12 @@
 #!/bin/bash
 
 ## Add this to your wm startup file.
+if ! command -v hideIt.sh >/dev/null 2>&1; then
+    notify-send "Cannot find hideIt.sh, used by polybar"
+fi
+if ! command -v xdo >/dev/null 2>&1; then
+    notify-send "Cannot find xdo, used by polybar"
+fi
 
 # Terminate already running bar instances
 killall -q polybar
@@ -34,7 +40,7 @@ if [[ $my_laptop_external_monitor == *" connected"* ]]; then
     hideIt.sh -w -i 0.2 -d "top" --name "polybar-usbc_DP-2" --peek 0 --region 1920x0+2560+3 &
     disown
 else
-    hideIt.sh -w -i 0.2 -d "top" --name "polybar-top_eDP-1" --peek 0 --region 0x0+1920+22 &
+    hideIt.sh -w -i 0.2 -d "top" --name "polybar-top_eDP-1" --peek 0 --region 0x0+1920+3 &
     disown
 fi
 
